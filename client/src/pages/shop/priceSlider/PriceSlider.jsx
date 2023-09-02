@@ -1,6 +1,6 @@
-import React from 'react'
+import { Slider } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { Typography, Slider } from '@mui/material';
+import React from 'react';
 // import Slider from '@mui/material';
 
 const useStyles = makeStyles({
