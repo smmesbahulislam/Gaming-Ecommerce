@@ -1,0 +1,70 @@
+/* Login.css */
+
+.container {
+  height: auto;
+  /* max-width: 400px; */
+  margin: auto;
+  margin-top: 25px;
+  text-align: center;
+  background: rgb(158,167,206);
+  background: radial-gradient(circle, rgba(158,167,206,1) 0%, rgba(227,230,243,1) 100%);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #fff; /* Set text color to white for better visibility */
+}
+.width{
+  max-width: 400px;
+  padding: 20px;
+}
+.width2{
+  max-width: 750px;
+}
+.fdisplay{
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  margin-top: 10px;
+}
+.submit-button:hover{
+  color: black;
+  font-weight: bold;
+}
+
+.forgot-password-button {
+  color: #007bff;
+  margin-top: 5px;
+  text-decoration: underline;
+}
+
+.heading{
+  width: 70%;
+  margin-left: 20px;
+  margin-right: 20px ;
+}
+
+.other{
+  width: 50%;
+  padding-right: 20px;
+}
+
+.heading img{
+  height: 400px;
+  width: 400px;
+}

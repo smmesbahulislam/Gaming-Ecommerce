@@ -1,0 +1,49 @@
+#error_page{
+    min-height: 65vh;
+}
+
+#error_page .error_page_container{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #343434;
+
+    /* display: flex;
+    flex-direction: column; */
+    /* gap: 20px; */
+}
+
+#error_page .error_page_container h1{
+    font-size: 200px;
+    margin: 0;
+    font-weight: 900;
+    letter-spacing: 20px;
+
+    padding-top: 80px;
+    padding-bottom: 30px;
+
+    background: url('../../../public/images/404_back.jpg') center no-repeat;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+#error_page .error_page_container .nav_link{
+    text-decoration: none;
+    background: #e55039aa;
+    color: #fff;
+    padding: 12px 44px;
+    display: inline-block;
+    border-radius: 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+
+#error_page .error_page_container .nav_link:hover{
+    background: #e55039;
+}
+
+

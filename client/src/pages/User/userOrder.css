@@ -1,0 +1,104 @@
+.order-table{
+    padding-top: 20px;
+    overflow-x: auto;
+}
+
+.order-table table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+.order-table table td:nth-child(1){
+    width: 100px;
+    text-align: center;
+}
+.order-table table td:nth-child(2){
+    width: 100px;
+    text-align: center;
+}
+.order-table table td:nth-child(3){
+    width: 100px;
+    text-align: center;
+}
+.order-table table td:nth-child(4),
+.order-table table td:nth-child(5){
+    width: 100px;
+    text-align: center;
+}
+
+.order-table table thead{
+    border: 1px solid #e2e9e1;
+    border-left: none;
+    border-right: none;
+}
+
+.order-table table thead td{
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 18px 0;
+}
+
+.order-table table tbody tr td{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.order-table table tbody td{
+    font-size: 16px;
+}
+
+.info-btn{
+    padding: 7px;
+    background: #088178;
+    color: #fff;
+    border: none;
+    height: 25px;
+    width: auto;
+    font-size: 16px;
+}
+.info-btn:hover{
+    transform: scale(1.1);
+    background-color: #085b56;
+}
+.dialog{
+    max-height: 200px;
+}
+.order-info{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.order-1,
+  .order-2 {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .order-info span{
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .new-status{
+    margin-top: 20px;
+    display: flex;
+  }
+
+  .new-status h3{
+    flex: 2;
+  }
+  .new-status select{
+    flex:1;
+    height: 30px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .new-status select:focus{
+    outline: none;
+  }
