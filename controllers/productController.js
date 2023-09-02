@@ -169,3 +169,18 @@ export const updateProductController = async(req,res) => {
         
     }
 }
+
+export const getFilteredProducts = async(req, res) => {
+    try {
+        const {checked, radio} = req.body;
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            success: false,
+            message: "Error while filtering products",
+            error
+        })
+        
+    }
+}
