@@ -16,6 +16,7 @@
 }
 
 .filter_section .category_section {
+  margin-top: 40px;
   margin-bottom: 1rem;
 }
 
@@ -31,4 +32,11 @@
 .filter_section .price_section .label {
   margin-bottom: 2.5rem;
   font-weight: 600;
+}
+
+.pagination_section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }

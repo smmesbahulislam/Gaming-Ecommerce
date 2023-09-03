@@ -7,84 +7,33 @@ import './shop.css';
 import Layout from '../../components/Layout/Layout';
 import axios from 'axios';
 import {
-    Checkbox,
-    FormControlLabel,
-    FormGroup,
     Grid,
-    Box,
-    Slider
+    Pagination
 } from '@mui/material';
 import CategoriesCheckbox from './categoryCheckbox/CategoriesCheckbox';
 import PriceSlider from './priceSlider/PriceSlider';
 
 
-const marks = [
-    {
-        value: 0,
-        label: '$0',
-    },
-    {
-        value: 10,
-        label: '$10',
-    },
-    {
-        value: 20,
-        label: '$20',
-    },
-    {
-        value: 30,
-        label: '$30',
-    },
-    {
-        value: 40,
-        label: '$40',
-    },
-    {
-        value: 50,
-        label: '$50',
-    },
-    {
-        value: 60,
-        label: '$60',
-    },
-    {
-        value: 70,
-        label: '$70',
-    },
-    {
-        value: 80,
-        label: '$80',
-    },
-    {
-        value: 90,
-        label: '$90',
-    },
-    {
-        value: 100,
-        label: '$100',
-    },
-];
-
-function valuetext(value) {
-    return `$${value}`;
-}
 
 const Shop = () => {
+    const [page, setPage] = useState(1);
     const [products, setProducts] = useState([]);
+    // const [totalProduct, setTotalProduct] = useState(0);
     const [categories, setCategories] = useState([]);
     const [checked, setChecked] = useState([]);
-    const [selectedPrice, setSelectedPrice] = useState([0,1000])
+    const [selectedPrice, setSelectedPrice] = useState([0, 1000])
+    const [pageCount, setPageCount] = useState(1);
 
-    const getAllProducts = async () => {
-        try {
-            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/get-allProduct`);
-            // console.log(data)
-            setProducts(data.products)
-        } catch (error) {
-            console.log(error);
+    // const getAllProducts = async (page) => {
+    //     try {
+    //         const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`);
+    //         // console.log(data)
+    //         setProducts(data.products)
+    //     } catch (error) {
+    //         console.log(error);
 
-        }
-    }
+    //     }
+    // }
 
     const getAllCategory = async () => {
         try {
@@ -97,11 +46,55 @@ const Shop = () => {
 
         }
     }
+
+    const getFilteredProducts = async (checked, selectedPrice, page) => {
+        try {
+            const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/get-filteredProducts`, {
+                categoryId: checked,
+                priceRange: selectedPrice,
+                page: page
+            })
+
+            if (data.success) {
+                setPageCount(data.pageCount)
+                setProducts(data.filteredProducts);
+            } else {
+                console.log(data.message);
+            }
+        } catch (error) {
+            console.log(error);
+
+        }
+    }
+
+    // const totalProductCount = async() => {
+    //     try {
+    //         const {data} = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-count`)
+    //         if(data.success){
+    //             setPageCount(Math.ceil(data.total/6))
+    //             // setTotalProduct(data.total);
+    //         }else{
+    //             console.log(data.message);
+    //         }
+    //     } catch (error) {
+    //         console.log(error); 
+    //     }
+    // }
+
+
     useEffect(() => {
-        getAllProducts();
         getAllCategory();
     }, []);
-    // getAllProducts();
+
+    useEffect(() => {
+        getFilteredProducts(checked, selectedPrice, page)
+    }, [checked, selectedPrice, page])
+
+    // useEffect(() => {
+    //     getAllProducts(page);
+    // },[page])
+
+
 
     const handleChangeChecked = (value, id) => {
         let selectedCategory = [...checked];
@@ -113,7 +106,7 @@ const Shop = () => {
         setChecked(selectedCategory);
     }
 
-    const handleChangedPrice = (event, value) => setSelectedPrice(value) 
+    const handleChangedPrice = (event, value) => setSelectedPrice(value)
     return (
         <>
             <Layout>
@@ -122,6 +115,7 @@ const Shop = () => {
                     <Grid container spacing={4}>
                         <Grid item xs={2.5}>
                             <div className="filter_section">
+
                                 {/* category section  */}
                                 <div className="category_section">
                                     <p className="label">Categories</p>
@@ -140,14 +134,13 @@ const Shop = () => {
                                 {/* price range  */}
                                 <div className="price_section">
                                     <p className='label'>Price</p>
-                                    <PriceSlider value={selectedPrice} changedPrice={handleChangedPrice}/>
-                                    
+                                    <PriceSlider value={selectedPrice} changedPrice={handleChangedPrice} />
+
                                     {/* {
                                         JSON.stringify(selectedPrice, null, 4)
                                     } */}
                                 </div>
 
-                                
                                 {/* start rating  */}
 
                             </div>
@@ -170,7 +163,17 @@ const Shop = () => {
                         </Grid>
 
                     </Grid>
-
+                </div>
+                <div className="pagination_section">
+                    <Pagination
+                        count={pageCount}
+                        variant="outlined"
+                        color="primary"
+                        defaultPage={page}
+                        // hideNextButton={true}
+                        // hidePrevButton={true}
+                        onChange={(event, value) => setPage(value)}
+                    />
                 </div>
             </Layout>
         </>

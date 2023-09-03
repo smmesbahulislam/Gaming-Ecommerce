@@ -101,7 +101,15 @@ const HomePage = () => {
           <h1>Our Products</h1>
           <div className='line'></div>
         </div>
-        <div className="pro-container">
+        <div 
+          className="pro-container"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexWrap: 'wrap'
+          }}
+        >
           {
             products?.slice(0,10).map((p) => (
               <ProductsCard
