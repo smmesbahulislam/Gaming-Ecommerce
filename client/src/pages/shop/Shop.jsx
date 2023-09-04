@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import CategoriesCheckbox from './categoryCheckbox/CategoriesCheckbox';
 import PriceSlider from './priceSlider/PriceSlider';
+import SearchBar from './searchBar/SearchBar';
 
 
 
@@ -112,6 +113,9 @@ const Shop = () => {
             <Layout>
                 <div>
                     <PageHeader />
+                    {/* <div className="shopSearchBar">
+                        <SearchBar />
+                    </div> */}
                     <Grid container spacing={4}>
                         <Grid item xs={2.5}>
                             <div className="filter_section">
@@ -147,6 +151,10 @@ const Shop = () => {
                         </Grid>
 
                         <Grid item xs={9.5}>
+                            <div className="shopProductTopSection">
+                                <label id='heading'>Choose Your Game</label>
+                                <SearchBar />
+                            </div>
                             <div className='shopcard'>
                                 {
                                     products?.map((p) => (
