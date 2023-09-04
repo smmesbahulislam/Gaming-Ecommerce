@@ -9,19 +9,22 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/auth';
 import { CartProvider } from './context/cart';
+import { Provider } from 'react-redux';
+import store from './reduxToolkit/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AuthProvider>
-    <CartProvider>
-      <BrowserRouter>
-        <React.StrictMode>
+  <Provider store={store}>
+    <AuthProvider>
+      <CartProvider>
+        <BrowserRouter>
+          {/* <React.StrictMode> */}
           <App />
-        </React.StrictMode>
-      </BrowserRouter>
-    </CartProvider>
-  </AuthProvider>
-
+          {/* </React.StrictMode> */}
+        </BrowserRouter>
+      </CartProvider>
+    </AuthProvider>
+  </Provider>
 );
 
 

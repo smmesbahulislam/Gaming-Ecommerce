@@ -1,0 +1,105 @@
+/* .productDetailsDialog{
+    height: 500px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.productDetails {
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.productImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.productImage img {
+  height: 100%;
+  width: 100%;
+}
+
+.productDetails .productDetailsInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.productDetailsInformation .productName {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.productDetailsInformation .productPrice {
+  font-size: 20px;
+  font-weight: 600;
+  color: orangered;
+}
+
+.productDetailsInformation .productDescription {
+  font-size: 18px;
+  font-weight: 300;
+  color: #7D7974;
+}
+.productInfo .type{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 50px;
+}
+
+.productInfo .type .typeName{
+    font-size: 18px;
+    font-weight: 600;
+    color: #7D7974;
+    width: 80px;
+}
+
+.quantityAndBuySection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.quantityAndBuySection .typeName{
+    font-size: 18px;
+    font-weight: 600;
+    color: #7D7974;
+}
+.addToCartButton{
+    background-color: tomato !important;
+    height: 55px;
+}
+
+.buyItNowButton{
+    background-color: #7D7974 !important;
+    height: 55px;
+}
+
+.wishlistAndCompareSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.addToWishlistButton{
+    color: #7D7974 !important;
+}
+
+
